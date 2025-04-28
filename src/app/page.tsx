@@ -18,7 +18,7 @@ export default async function Home() {
           <button>Sign up</button>
         </a>
         <br/>
-        <a href="/auth/login">
+        <a href="/auth/login?returnTo=/dashboard">
           <button>Log in sin</button>
         </a><br/>
         {/* <a href="/auth/login?audience=https://51lyy4n8z0.execute-api.us-east-2.amazonaws.com/dev">
