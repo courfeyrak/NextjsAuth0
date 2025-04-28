@@ -10,7 +10,7 @@ export async function middleware(request: NextRequest) {
   }
   console.log("------AUTH0_ISSUER_BASE_URL:", process.env.AUTH0_ISSUER_BASE_URL);
   try {
-    let x= await auth0.middleware(request);
+    const x= await auth0.middleware(request);
     return x;
   } catch (error) {
     console.error("Error en el middleware de Auth0:", error);
