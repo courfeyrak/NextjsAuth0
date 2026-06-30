@@ -1,11 +1,44 @@
-name: Hello World Manual Trigger
+name: CI/CD Pipeline
 
 on:
   workflow_dispatch:
 
 jobs:
-  say-hello:
+  build:
+    name: Build Application
     runs-on: ubuntu-latest
     steps:
-      - name: Run Hello World
-        run: echo "Hello, World!"
+      - name: Run Build
+        run: |
+          echo "Executing dummy build step..."
+          echo "Done!"
+
+  deploy-dev:
+    name: Deploy to DEV
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Deploy DEV
+        run: |
+          echo "Deploying to DEV environment..."
+          echo "Done!"
+
+  deploy-qa:
+    name: Deploy to QA
+    needs: deploy-dev
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Deploy QA
+        run: |
+          echo "Deploying to QA environment..."
+          echo "Done!"
+
+  deploy-prod:
+    name: Deploy to PROD
+    needs: deploy-qa
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Deploy PROD
+        run: |
+          echo "Deploying to PROD environment..."
+          echo "Done!"
