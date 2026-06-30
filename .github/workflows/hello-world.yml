@@ -17,6 +17,7 @@ jobs:
     name: Deploy to DEV
     needs: build
     runs-on: ubuntu-latest
+    environment: dev
     steps:
       - name: Run Deploy DEV
         run: |
@@ -27,6 +28,7 @@ jobs:
     name: Deploy to QA
     needs: deploy-dev
     runs-on: ubuntu-latest
+    environment: qa
     steps:
       - name: Run Deploy QA
         run: |
@@ -37,6 +39,7 @@ jobs:
     name: Deploy to PROD
     needs: deploy-qa
     runs-on: ubuntu-latest
+    environment: prod
     steps:
       - name: Run Deploy PROD
         run: |
